@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: motd-ingress
+  namespace: thomas-gigout
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host:  thomas-gigout.amnay.fr
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: my-service
+              servicePort: 80
