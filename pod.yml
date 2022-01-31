@@ -5,7 +5,13 @@ metadata:
   name: thomas-gigout-pod
   labels:
     app: motd
+    env: prod
 spec:
   containers:
   - name: motd
     image: tgigout/motd-api
+    env:
+    - name: APP_MESSAGE
+      value: "Coucou"
+    - name: APP_PORT
+      value: "5556"

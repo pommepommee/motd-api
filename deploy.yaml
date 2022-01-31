@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: motd-deployment
+  labels:
+    app: motd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: motd
+  template:
+    metadata:
+      labels:
+        app: motd
+    spec:
+      containers:
+      - name: motd
+        image: tgigout/motd-api
+        env:
+        - name: APP_PORT
+          value: "5556"
+        - name: APP_MESSAGE
+          value: "Nouveau"
+        ports:
+        - containerPort: 80

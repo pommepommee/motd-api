@@ -4,7 +4,7 @@ import sys
 import os
 
 app = Flask(__name__)
-_APP_PORT = os.getenv("APP_PORT")
+_APP_PORT = int(os.getenv("APP_PORT"))
 _MESSAGE = os.getenv("APP_MESSAGE")
 print(_APP_PORT, _MESSAGE)
 
