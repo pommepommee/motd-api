@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: thomas-gigout-pod
+  labels:
+    app: motd
+spec:
+  containers:
+  - name: motd
+    image: tgigout/motd-api

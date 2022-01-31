@@ -1,6 +1,9 @@
 FROM alpine:latest
 RUN apk add python3 py3-pip
 
+ENV APP_MESSAGE="Hello World!"
+ENV APP_PORT=5555
+
 COPY ./app/ ./app/
 WORKDIR app/
 
