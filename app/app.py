@@ -1,23 +1,20 @@
 from flask import Flask
 from flask import jsonify
 import sys
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument('APP_PORT', type=int, help="Application port, default 5000", default="5000")
-parser.add_argument('MESSAGE', type=str, help="Message to display")
-
-args = parser.parse_args()
+import os
 
 app = Flask(__name__)
+_APP_PORT = os.getenv("APP_PORT")
+_MESSAGE = os.getenv("APP_MESSAGE")
+print(_APP_PORT, _MESSAGE)
 
 @app.route('/')
 def index():
-    msg = {"message": args.MESSAGE}
+    msg = {"message": _MESSAGE}
     return jsonify(msg)
 
 def main():
-    app.run(debug=True, host='0.0.0.0', port=args.APP_PORT)
+    app.run(debug=True, host="0.0.0.0", port=_APP_PORT)
 
 if __name__ == '__main__':
     main()
