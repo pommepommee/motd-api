@@ -4,7 +4,7 @@ metadata:
   name: my-loadbalancer
 spec:
   selector:
-    app: motd-api
+    app: motd
   ports:
     - protocol: TCP
       port: 80
